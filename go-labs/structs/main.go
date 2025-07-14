@@ -38,9 +38,9 @@ func main() {
 }
 
 func (pointer *person) updateFirstName(newString string) { //(*person -> (pointer to person) The *person means that the receiver pointer is a variable that holds the address of a person struct.
-	(*pointer).firstname = newString //another way of referencing so called manual reference
-	pointer.lastname = "hel"         //auto dereferencing feature from Go
-	pointer.contactinfo.emailid = "leooo@gmail.com"
+	(*pointer).firstname = newString    //another way of referencing so called manual reference
+	pointer.lastname = "hel"            //auto dereferencing feature from Go
+	pointer.emailid = "leooo@gmail.com" //can also be written pointer.emailid since Go will promote the fields of contactinfo up into person kind of inheritance.
 	fmt.Println(len(strconv.Itoa(pointer.contactinfo.phoneno)))
 }
 func (p person) printcontent() {
