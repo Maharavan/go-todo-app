@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 )
@@ -9,8 +10,11 @@ import (
 func main() {
 	resp, err := http.Get("https://www.google.com/")
 	if err != nil {
-		fmt.Printf("Error occured %d", err)
-		os.Exit(1)
+		panic(err)
 	}
 	fmt.Println(resp)
+	// bs := make([]byte, 99999)
+	// resp.Body.Read(bs)
+	// fmt.Println(string(bs))
+	io.Copy(os.Stdout, resp.Body)
 }
