@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 	"todoapp/database"
 	"todoapp/models"
 
@@ -40,6 +41,15 @@ func DeleteTaskfromDB(rout *gin.Context) {
 	rout.JSON(http.StatusOK, gin.H{"status": "success", "message": "Deleted successfully"})
 }
 
+func DeleteTaskIDfromDB(rout *gin.Context) {
+	id := rout.Query("id")
+	convert_id, _ := strconv.Atoi(id)
+	err := database.DeleteTaskByID(convert_id)
+	if err != nil {
+		rout.JSON(http.StatusNotAcceptable, gin.H{"status": "error", "message": err})
+	}
+	rout.JSON(http.StatusOK, gin.H{"status": "success", "message": "Deleted successfully"})
+}
 func UpdateTaskintoDB(rout *gin.Context) {
 	var T models.Todo
 	if err := rout.ShouldBindJSON(&T); err != nil {

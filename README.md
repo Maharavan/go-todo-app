@@ -59,6 +59,7 @@ http://localhost:3001
 - **Add Task:** Enter task name and click **Add**
 - **Delete Task:** Click the delete button next to a task
 - **Update Status:** Check/uncheck the task to mark it as done/pending
+- **Delete All:** Delete all tasks if not needed
 
 All changes are persisted in **SQLite database (**``**)** automatically.
 

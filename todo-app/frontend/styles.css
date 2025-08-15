@@ -46,6 +46,8 @@ body {
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
     animation: typing 2s steps(50),cursor .4s step-end infinite alternate;
 
 }
@@ -64,7 +66,7 @@ body {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.clear-all, .task-create {
+.clear-all, .task-create{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,7 +87,7 @@ body {
     letter-spacing: 1px;
 }
 
-.task-create button {
+.task-create button, .task-delete {
     background: none;
     border: none;
     cursor: pointer;
@@ -94,10 +96,12 @@ body {
 }
 
 
-.task-create button img {
+.task-delete  img,.task-create img {
     width: 40px;
     height: 40px;
     display: block;
+    background: none;
+    border: none;
 }
 
 
@@ -114,18 +118,26 @@ body {
     transition: background-color 0.3s linear;
     background-color: white;
     letter-spacing: 1px;
+    font-size: large;
     font-family: 'Roboto', sans-serif;
 }
 
 .task-align input[type=checkbox] {
     -webkit-appearance: none;
     appearance: none;
-    margin: 0;
+    position: static;
     height: 20px;
     width: 20px;
     border-radius: 5px;
     background-color: rgb(241, 251, 255);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.check-delete-align{
+    gap: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .task-align input[type=checkbox]:checked {

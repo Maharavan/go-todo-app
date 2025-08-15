@@ -53,7 +53,8 @@ function renderTasks(tasks) {
 
         const main = document.createElement('div');
         main.classList.add('task-align'); 
-
+        const sec = document.createElement('div');
+        sec.classList.add('check-delete-align');
         const label = document.createElement("label");
         label.htmlFor = taskout.id;
         label.textContent = taskout.task;
@@ -65,6 +66,7 @@ function renderTasks(tasks) {
         out.value = taskout.task
         out.checked = taskout.status;
         
+
         out.addEventListener("change",() =>{
             if (out.checked==true){
                 main.style.backgroundColor = '#ffe7e9'
@@ -74,14 +76,41 @@ function renderTasks(tasks) {
             }
             updateTask(taskout.id,taskout.task,out.checked);
         });
+
+        const delete_task = document.createElement("button")
+        delete_task.classList.add('task-delete')
+        delete_task.innerHTML = `<img src="assets/delete.png" alt="delete">`;
+        delete_task.addEventListener("click",()=>{
+            delete_required_task(taskout.id) 
+        });
         main.appendChild(label);
-        main.appendChild(out);
+
+        sec.appendChild(out);
+        sec.appendChild(delete_task);
+        main.appendChild(sec);
 
         taskList.appendChild(main);
     });
     taskList.scrollTop = 0;
 }
 
+async function delete_required_task(id) {
+    const resp = await fetch(`http://localhost:3001/deletetask?id=${id}`,{
+        method:"DELETE",
+        headers:{
+            'Content-Type':'application/json'
+        }
+    });
+    const data = await resp.json()
+
+    if (data.message=="success"){
+        console.log("data deleted");
+    }
+    else{
+        alert(data.message);
+    }
+    await loadTask();
+}
 async function updateTask(id,task,checked) {
     const resp = await fetch("http://localhost:3001/updatetask",{
         method:"PUT",
@@ -103,7 +132,7 @@ async function updateTask(id,task,checked) {
 
 async function deleteallTask(){
 
-    const resp = await fetch("http://localhost:3001/deletetask",{
+    const resp = await fetch("http://localhost:3001/clearalltask",{
         method:"DELETE",
         headers:{
             'Content-Type':'application/json'
