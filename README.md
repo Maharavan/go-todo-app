@@ -12,7 +12,7 @@ This project was built **after completing Striver’s Complete Go Developer cour
 - Persistent storage using **SQLite** via **GORM**
 - Minimal frontend using **HTML, CSS, JS**
 - Backend powered by **Gin framework**
-- Serves frontend at **localhost:3000**
+- Serves frontend at **localhost:3001**
 
 ## Tech Stack 🛠️
 
