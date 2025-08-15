@@ -65,7 +65,6 @@ function renderTasks(tasks) {
         out.name = "task-align"
         out.value = taskout.task
         out.checked = taskout.status;
-        
 
         out.addEventListener("change",() =>{
             if (out.checked==true){
@@ -95,21 +94,24 @@ function renderTasks(tasks) {
 }
 
 async function delete_required_task(id) {
-    const resp = await fetch(`http://localhost:3001/deletetask?id=${id}`,{
-        method:"DELETE",
-        headers:{
-            'Content-Type':'application/json'
-        }
-    });
-    const data = await resp.json()
+    let proceed = confirm('Do you want to delete?')
+    if (proceed){
+        const resp = await fetch(`http://localhost:3001/deletetask?id=${id}`,{
+            method:"DELETE",
+            headers:{
+                'Content-Type':'application/json'
+            }
+        });
+        const data = await resp.json()
 
-    if (data.message=="success"){
-        console.log("data deleted");
+        if (data.message=="success"){
+            console.log("data deleted");
+        }
+        else{
+            alert(data.message);
+        }
+        await loadTask();
     }
-    else{
-        alert(data.message);
-    }
-    await loadTask();
 }
 async function updateTask(id,task,checked) {
     const resp = await fetch("http://localhost:3001/updatetask",{
@@ -131,22 +133,24 @@ async function updateTask(id,task,checked) {
 
 
 async function deleteallTask(){
+    let proceed = confirm('Do you want to clear all task?');
+    if (proceed){
+        const resp = await fetch("http://localhost:3001/clearalltask",{
+            method:"DELETE",
+            headers:{
+                'Content-Type':'application/json'
+            },
+            
+        });
 
-    const resp = await fetch("http://localhost:3001/clearalltask",{
-        method:"DELETE",
-        headers:{
-            'Content-Type':'application/json'
-        },
-        
-    });
+        const data = await resp.json()
 
-    const data = await resp.json()
-
-    if (data.message=="success"){
-        console.log("data deleted");
+        if (data.message=="success"){
+            console.log("data deleted");
+        }
+        else{
+            alert(data.message);
+        }
+        await loadTask();
     }
-    else{
-        alert(data.message);
-    }
-    await loadTask();
 }
