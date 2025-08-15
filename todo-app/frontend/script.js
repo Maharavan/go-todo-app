@@ -10,6 +10,9 @@ window.addEventListener('DOMContentLoaded',loadTask);
 async function providenewTask(){
     try{
         const val = document.getElementById("taskdata").value;
+        if (val==''){
+            throw new Error('Empty string');
+        }
         const postresponse = await fetch('http://localhost:3001/postnewtask', {
                 method: 'POST',
                 headers: {
@@ -96,6 +99,8 @@ async function updateTask(id,task,checked) {
         alert(data.message)
     }
 }
+
+
 async function deleteallTask(){
 
     const resp = await fetch("http://localhost:3001/deletetask",{
