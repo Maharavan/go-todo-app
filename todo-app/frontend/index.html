@@ -7,22 +7,24 @@
 
 </head>
 <body>
+    <div class="Section">
+        <div class="header">
+            <header>To-Do App</header>
+        </div>
+        <br><br><br><br>
+        <div class="task-create">
+            <input type="text" id="taskdata" placeholder="Todo task" >
+            <button onclick="providenewTask()"><img src="assets/add-button.png"></button>      
+        </div>
+    </div>
     <div class="align-container">
         <div class="container">
-            <div class="header">
-                <header>To-Do App</header>
-            </div>
-            <br><br>
-            <div class="task-create">
-                <input type="text" id="taskdata" placeholder="Todo task" >
-                <button onclick="providenewTask()"><img src="assets/add-button.png"></button>      
-            </div>
-            <br><br>
             <div class="seg-task" id="tasklist">
             </div>
-            
-            
         </div>
+    </div>
+    <div class="clear-all">
+        <button onclick="deleteallTask()"><img src="assets/delete.png"></button>
     </div>
     <script src="/script.js"></script>
 

@@ -31,3 +31,30 @@ func GetTaskfromDB(rout *gin.Context) {
 	}
 	rout.JSON(http.StatusOK, gin.H{"tasks": res})
 }
+
+func DeleteTaskfromDB(rout *gin.Context) {
+	err := database.DeleteTask()
+	if err != nil {
+		rout.JSON(http.StatusNotAcceptable, gin.H{"status": "error", "message": err})
+	}
+	rout.JSON(http.StatusOK, gin.H{"status": "success", "message": "Deleted successfully"})
+}
+
+func UpdateTaskintoDB(rout *gin.Context) {
+	var T models.Todo
+	if err := rout.ShouldBindJSON(&T); err != nil {
+		fmt.Println(err)
+		rout.JSON(http.StatusBadRequest, gin.H{
+			"error": "Info not updated",
+		})
+		return
+	}
+	err := database.UpdateTask(&T)
+	if err != nil {
+		fmt.Println(err)
+		rout.JSON(http.StatusNotAcceptable, gin.H{"status": "error", "message": err})
+		return
+	}
+	rout.JSON(http.StatusOK, gin.H{"status": "success", "message": "Updated successfully"})
+
+}

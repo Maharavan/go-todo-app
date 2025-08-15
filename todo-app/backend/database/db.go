@@ -41,3 +41,25 @@ func GetTask() ([]models.Todo, error) {
 	}
 	return T, nil
 }
+
+func DeleteTask() error {
+	db := ConnectDB()
+	result := db.Where("1==1").Delete(&models.Todo{})
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
+}
+
+func UpdateTask(T *models.Todo) error {
+	db := ConnectDB()
+	result := db.Model(&models.Todo{}).Where("id =?", T.ID).Update("status", T.Status)
+	if result.Error != nil {
+		return result.Error
+	}
+	if result.RowsAffected == 0 {
+		fmt.Printf("No rows")
+		return fmt.Errorf("no rows affected %d", T.ID)
+	}
+	return nil
+}

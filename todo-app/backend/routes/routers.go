@@ -9,7 +9,8 @@ import (
 
 func RegisterRoutes(eng *gin.Engine) {
 	fmt.Println("POST newly created task")
-	eng.POST("/updatetask", controllers.PostnewTask)
+	eng.POST("/postnewtask", controllers.PostnewTask)
 	eng.GET("/gettask", controllers.GetTaskfromDB)
-
+	eng.DELETE("/deletetask", controllers.DeleteTaskfromDB)
+	eng.PUT("/updatetask", controllers.UpdateTaskintoDB)
 }
