@@ -65,7 +65,9 @@ function renderTasks(tasks) {
         out.name = "task-align"
         out.value = taskout.task
         out.checked = taskout.status;
-
+        if (out.checked==true){
+            main.style.backgroundColor = '#ffe7e9'
+        }
         out.addEventListener("change",() =>{
             if (out.checked==true){
                 main.style.backgroundColor = '#ffe7e9'
