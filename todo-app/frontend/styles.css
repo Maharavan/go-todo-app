@@ -25,6 +25,7 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     width: 200%;
     height: auto;
+    color: whitesmoke;
     white-space: nowrap;
     overflow: hidden;
     animation: typing 2s steps(50),
@@ -48,6 +49,8 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     width: 100%;
     white-space: nowrap;
+    color: whitesmoke;
+
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -60,6 +63,7 @@ body {
     max-height: 60vh;
     padding: 20px;
     gap: 30px;
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -86,6 +90,8 @@ body {
     border: none;
     border-radius: 10px;
     outline: none;
+    color:whitesmoke;
+    background: linear-gradient(135deg, rgb(102, 27, 182), #93c5fd);
     font-family: 'Roboto', sans-serif;
     font-size: large;
     letter-spacing: 1px;
@@ -144,6 +150,12 @@ body {
     flex-direction: row;
 }
 
+.task-align label{
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    color: whitesmoke;
+    font-size: x-large;
+}
 .task-align input[type=checkbox]:checked {
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     border-color: #6a11cb;
@@ -182,4 +194,5 @@ body {
 
 .container:empty{
     box-shadow: none;
+    background-color: transparent;
 }

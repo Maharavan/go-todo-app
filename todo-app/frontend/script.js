@@ -65,17 +65,20 @@ function renderTasks(tasks) {
         out.name = "task-align"
         out.value = taskout.task
         out.checked = taskout.status;
-        if (out.checked==true){
-            main.style.backgroundColor = '#ffe7e9'
+        if (out.checked) {
+            main.style.background = "linear-gradient(135deg, #6a11cb, #2575fc)"; // Purple-Blue
+        } else {
+            main.style.background = "linear-gradient(135deg, #ad60ffff, #93c5fd)"; // Soft Pink-Peach
         }
-        out.addEventListener("change",() =>{
-            if (out.checked==true){
-                main.style.backgroundColor = '#ffe7e9'
+
+        // Update background whenever checkbox changes
+        out.addEventListener("change", () => {
+            if (out.checked) {
+                main.style.background = "linear-gradient(135deg, #6a11cb, #2575fc)";
+            } else {
+                main.style.background = "linear-gradient(135deg, #ad60ffff, #93c5fd)";
             }
-            else{
-                main.style.backgroundColor = '#ffffff'
-            }
-            updateTask(taskout.id,taskout.task,out.checked);
+            updateTask(taskout.id, taskout.task, out.checked);
         });
 
         const delete_task = document.createElement("button")

@@ -1,8 +1,10 @@
 # Go Lang To-Do App 📝
 
-A simple **To-Do application** built with **Go** as the backend using **Gin framework**, **SQLite (via GORM)** for storage, and a frontend with **HTML, CSS, and JavaScript**.
+A simple **To-Do application** built with **Go** as the backend using the **Gin** framework, **SQLite (via GORM)** for storage, and a frontend with **HTML, CSS, and JavaScript**.
 
-This project was built **after completing Striver’s Complete Go Developer course** to explore Go and practice **full-stack development with Go**.
+This project was built after completing Striver’s Complete Go Developer course to explore Go and practice **full-stack development with Go**.
+
+---
 
 ## Features ✨
 
@@ -11,21 +13,27 @@ This project was built **after completing Striver’s Complete Go Developer cour
 - Update task status (mark as done ✅)
 - Persistent storage using **SQLite** via **GORM**
 - Minimal frontend using **HTML, CSS, JS**
-- Backend powered by **Gin framework**
-- Serves frontend at **localhost:3001**
+- Backend powered by **Gin**
+- Serves frontend at **http://localhost:3001**
+
+---
 
 ## Tech Stack 🛠️
 
-- **Backend:** Go (Golang) with **Gin**
-- **Database:** SQLite (via **GORM**)
-- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Go (Golang) with **Gin**  
+- **Database:** SQLite (via **GORM**)  
+- **Frontend:** HTML, CSS, JavaScript  
 - **ORM:** GORM
+
+---
 
 ## Learning Context 🎓
 
-- Built after learning Go through **Striver’s Complete Go Developer course**
-- Focused on **CRUD operations, routing, database integration, and serving HTML templates**
+- Built after learning Go through **Striver’s Complete Go Developer course**  
+- Focused on **CRUD operations, routing, database integration, and serving HTML templates**  
 - Practical experience combining **Go backend** with a **frontend**
+
+---
 
 ## Installation ⚡
 
@@ -42,7 +50,7 @@ cd todo-app/backend
 go mod tidy
 ```
 
-3. Run the backend application (serves frontend on port 3000):
+3. Run the backend application (serves frontend on port **3001**):
 
 ```bash
 go run todoapp.go
@@ -54,14 +62,18 @@ go run todoapp.go
 http://localhost:3001
 ```
 
+---
+
 ## Usage 🖱️
 
-- **Add Task:** Enter task name and click **Add**
-- **Delete Task:** Click the delete button next to a task
-- **Update Status:** Check/uncheck the task to mark it as done/pending
+- **Add Task:** Enter task name and click **Add**  
+- **Delete Task:** Click the delete button next to a task  
+- **Update Status:** Check/uncheck the task to mark it as done/pending  
 - **Delete All:** Delete all tasks if not needed
 
-All changes are persisted in **SQLite database (**``**)** automatically.
+All changes are persisted in the **SQLite database** automatically.
+
+---
 
 ## Project Structure 📁
 
@@ -87,5 +99,8 @@ todo-app/
 go-labs/                 # Folder with other Go practice projects
 ```
 
+---
 
+## Screenshot
 
+![To-Do App screenshot](todo-app/frontend/assets/todoapp.png)
